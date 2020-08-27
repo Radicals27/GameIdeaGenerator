@@ -51,7 +51,7 @@ img {
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    font-size: 2em;
+    font-size: 2vw;
 }
 
 #app button:hover {
