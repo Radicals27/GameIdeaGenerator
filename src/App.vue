@@ -71,4 +71,23 @@ img {
     margin: 0;
     text-align: center;
 }
+
+@media only screen and (max-width: 768px){
+  /* For mobile phones: */
+  #app button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+
+    background-color: #a3b0fa; 
+    border: 2px solid #000000;
+    color: rgb(0, 0, 0);
+    /* padding: 15px 32px; */
+    text-align: center;
+    text-decoration: none;
+    font-size: 4vw;
+  }
+}
+
 </style>
