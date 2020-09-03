@@ -15,24 +15,24 @@
     methods: {
         getIdeaData() {
             var ideaTemplates = [
-                [['A '],['style'],[' game about a '],['noun'],[' trying to '],['verb'],[' during '],['event'],['.']],
-                [['A '],['style'],[' game where you can only '],['verb'],[', set in a '],['location'],['.']],
-                [['A '],['style'],[' game where you must coerce a '],['noun'],[' into '],['verbing'],[' a '],['noun'],['.']],
-                [['A '],['style'],[' game about a '],['adjective'],[' '],['noun'],[' trying to '],['verb'],[' during '],['event'],['.']],
-                [['A '],['style'],[' game about a '],['noun'],[' who can control a '],['noun'],[' with their '], ['itemsSingular'],['.']],
+                [['A '],['adjective'],[' '],['style'],[' game about a '],['noun'],[' trying to '],['verb'],[' during '],['event'],['.']],
+                [['A '],['adjective'],[' '],['style'],[' game where you can only '],['verb'],[', set in a '],['location'],['.']],
+                [['A '],['adjective'],[' '],['style'],[' game where you must coerce a '],['noun'],[' into '],['verbing'],[' a '],['noun'],['.']],
+                [['A '],['adjective'],[' '],['style'],[' game about a '],['adjective'],[' '],['noun'],[' trying to '],['verb'],[' during '],['event'],['.']],
+                [['A '],['adjective'],[' '],['style'],[' game about a '],['noun'],[' who can control a '],['noun'],[' with their '], ['itemsSingular'],['.']],
                 [['A '],['adjective'],[' '],['style'],[' game where enemies '],['verb'],[' and the player must '],['verb'],[' to survive.'],['.']],
                 [['A day in the life of a '],['noun'],[' set in a '],['location'],[', designed to make the player feel '], ['feeling'],['.']],
-                [['A '],['style'],[' game where you play a '],['noun'],[' who collects '],['itemsPlural'],[', so that they can '], ['verb'],[' in order to save '],['event'],['.']]
+                [['A '],['adjective'],[' '],['style'],[' game where you play a '],['noun'],[' who collects '],['itemsPlural'],[', so that they can '], ['verb'],[' in order to save a '],['location'],['.']]
             ]
             var styles = [['VR'],['first person'],['first person shooter'],['horror'],['racing'],['survival'], ['childrens'], ['strategy'], ['turn-based'],['simulation'],['tycoon'],['roguelike'],['4-player co-op'], ['MMO'],['Mobile'],['Shoot-em-up'],['Beat-em-up']]
             var nouns = [['fairy'],['bear'],['alien'],['programmer'],['used car salesman'],['politician'],['bird'],['druglord'],['exotic dancer'],['mobster'],['astronaut'], ['scientist'],['actor'],['spy'],['totally normal person'],['woman'],['man'],['inventor'],['celebrity']]
-            var verbs = [['conquer'],['crawl'],['kill'],['climb'],['teleport'],['program'],['assassinate'],['shout'],['paint'],['attack'],['die'],['laugh'],['punch'],['kick'],['fly'],['sing'],['think'],['pray'],['swim'],['spy'],['evolve'],['drive'],['hide']]
+            var verbs = [['conquer'],['crawl'],['kill'],['climb'],['teleport'],['program'],['assassinate'],['shout'],['paint'],['attack'],['die'],['laugh'],['punch'],['kick'],['fly'],['sing'],['meditate'],['pray'],['swim'],['spy'],['grow'],['drive'],['hide']]
             var events = [['a movie'],['a storm'],['a dream'],['a breakup'],['a work meeting'],['a race'],['a battle'],['a confrontation'],['a fight'],['a holiday'],['a workday'],['a very cold day'],['Christmas'],['Thanksgiving'],['Easter'],['a snowstorm'],['a solar flare'],['a hospital visit'],['an accident'],['a plane trip'],['a road trip'],['a recession'],['a pandemic'],['a workout']]
             var locations = [['bedroom'],['podcast'],['kitchen'],['library'],['school'],['graveyard'],['space station'],['spaceship'],['cinema'],['body'],['city'],['country town'],['desert'],['plate of food'],['brain'],['dream'],['fantasy world'],['scifi world'],['future time'],['past time'],['pool'],['prison']]
             var adjectives = [['scary'],['thrilling'],['anxiety-provoking'],['hilarious'],['wacky'],['stupid'],['religious'],['psychedelic'],['janky'],['dark'],['cheerful'],['speedy'],['calming'],['co-operative'],['silly'],['sassy'],['somber'],['clumsy'],['animated'],['sexy']]
             var feelings = [['sad'],['happy'],['angry'],['lost'],['anxious'],['scared'],['nostalgic'],['confused'],['smart'],['dumb'],['awesome'],['weird']]
             var itemsSingular = [['magic wand'],['hand'],['sadness'],['car'],['gun'],['baseball bat'],['yo-yo'],['fist']]
-            var itemsPlural = [['hands'],['stamps'],['feelings'],['rubber bands'],['pencils'],['guns'],['plants'],['teeth'],['siblings']]
+            var itemsPlural = [['hands'],['stamps'],['feelings'],['rubber bands'],['pencils'],['guns'],['plants'],['teeth'],['children'],['people'],['enemies'],['video games'],['butterflies'],['insects'],['trophies']]
             var verbing = [['sabotaging'],['creating'],['analyzing'],['eating'],['humiliating'],['challenging'],['cooking'],['annoying']]
 
             var gameIdea = ""
@@ -89,9 +89,19 @@
                         formattedIdea += gameIdea[i]
                     }
                 }
+                else if(gameIdea[i] == "A" & gameIdea[i+1] == " ") {
+                    if(gameIdea[i+2] == "a" || gameIdea[i+2] == "e" || gameIdea[i+2] == "i" || gameIdea[i+2] == "o"){
+                        formattedIdea += "An "
+                        i += 1
+                    }
+                    else {
+                        formattedIdea += gameIdea[i]
+                    }
+                }
                 else {
                     formattedIdea += gameIdea[i]
                 }
+                
             }
             this.idea = formattedIdea
         }
